@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de privacidade — ClipPilot</title>
+<style>
+  :root{--fundo:#020617;--linha:#1e293b;--texto:#e2e8f0;--suave:#94a3b8;--fraco:#64748b;--acao:#818cf8;--marca:#d946ef;--ok:#34d399}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--fundo);color:var(--texto);font:16px/1.7 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  .env{max-width:760px;margin:0 auto;padding:0 24px}
+  a{color:var(--acao)}
+  header{padding:26px 0;border-bottom:1px solid var(--linha)}
+  .marca{font-weight:800;font-size:20px}.marca span{color:var(--marca)}
+  h1{font-size:30px;margin:44px 0 6px;letter-spacing:-.02em}
+  h2{font-size:19px;margin:38px 0 10px}
+  p,li,td{color:var(--suave)}
+  ul{padding-left:22px}
+  .data{color:var(--fraco);font-size:14px;margin:0 0 30px}
+  .destaque{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.3);border-radius:12px;padding:18px 20px;color:#a7f3d0;font-size:15px;margin:26px 0}
+  .rascunho{background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.3);border-radius:12px;padding:18px 20px;color:#fde68a;font-size:15px;margin:26px 0}
+  .preencher{background:rgba(217,70,239,.10);border:1px dashed rgba(217,70,239,.45);border-radius:10px;padding:14px 16px;color:#f5d0fe;font-size:14px;margin:16px 0}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--linha);vertical-align:top}
+  th{color:var(--texto);font-size:13px;text-transform:uppercase;letter-spacing:.08em}
+  footer{margin-top:56px;padding:30px 0;border-top:1px solid var(--linha);color:var(--fraco);font-size:14px}
+</style>
+</head>
+<body>
+<header><div class="env marca">Clip<span>Pilot</span></div></header>
+<div class="env">
+
+<h1>Política de privacidade</h1>
+<p class="data">Última atualização: 16 de agosto de 2026</p>
+
+<div class="destaque">
+  <strong>O resumo honesto:</strong> o ClipPilot roda no seu computador e <strong>não envia nada
+  para nós</strong>. Não há telemetria, não há conta de usuário e não recebemos os seus roteiros,
+  imagens ou vídeos. O que sai da sua máquina vai para os serviços que <strong>você</strong>
+  configurou, direto do seu computador para eles.
+</div>
+
+<div class="rascunho">
+  Este texto é um rascunho técnico, escrito a partir do que o programa realmente faz — não é um
+  parecer jurídico. Peça revisão de um advogado antes de vender.
+</div>
+
+<div class="preencher">
+  <strong>Preencher antes de publicar:</strong> nome/razão social, CPF/CNPJ e e-mail de contato do
+  responsável pelo tratamento dos dados (encarregado, na LGPD).
+</div>
+
+<h2>1. O que fica só no seu computador</h2>
+<p>Estes dados nunca saem da sua máquina por iniciativa do programa:</p>
+<ul>
+  <li>seus roteiros, imagens, narrações e vídeos produzidos;</li>
+  <li>a configuração dos seus canais (nome, tema, estilo, voz);</li>
+  <li>as suas chaves de inteligência artificial;</li>
+  <li>a autorização de publicação do seu canal, guardada de forma cifrada, protegida pelo
+      Windows;</li>
+  <li>os registros de funcionamento (logs), usados para diagnóstico local.</li>
+</ul>
+
+<h2>2. O que sai da sua máquina — e para onde</h2>
+<p>Sempre direto do seu computador para o serviço, sem passar por nós:</p>
+<table>
+  <tr><th>Para quê</th><th>Para quem</th><th>O que vai</th></tr>
+  <tr><td>Escrever o roteiro</td><td>O serviço de IA que você configurar (Google, Groq, Cerebras, OpenRouter e afins)</td><td>O tema e as instruções do roteiro</td></tr>
+  <tr><td>Conferir os fatos</td><td>Wikipédia</td><td>O termo pesquisado</td></tr>
+  <tr><td>Gerar imagens</td><td>Sua placa de vídeo (nada sai) ou o serviço de nuvem que você escolher</td><td>A descrição visual da cena</td></tr>
+  <tr><td>Narrar</td><td>Serviço de voz (gratuito da Microsoft por padrão)</td><td>O texto a ser falado</td></tr>
+  <tr><td>Publicar</td><td>A plataforma do seu canal</td><td>O vídeo, título, descrição e marcações</td></tr>
+  <tr><td>Atualizar o programa</td><td>GitHub</td><td>Só a consulta da versão e o download do instalador</td></tr>
+</table>
+<p>Cada um desses serviços tem a própria política de privacidade, e é ela que vale para o que
+acontece depois que o dado chega lá.</p>
+
+<h2>3. Armazenamento externo opcional</h2>
+<p>O ClipPilot permite ligar um banco de dados Supabase para guardar histórico de tendências. Isso é
+opcional, desligado por padrão, e o banco é <strong>seu</strong> — nós não temos acesso.</p>
+
+<h2>4. Os dados que nós tratamos</h2>
+<p>Recebemos dados seus apenas quando você compra ou pede suporte:</p>
+<table>
+  <tr><th>Dado</th><th>Por quê</th><th>Base legal (LGPD)</th></tr>
+  <tr><td>Nome e e-mail</td><td>Emitir a sua licença, reenviá-la se você perder e responder ao suporte</td><td>Execução do contrato</td></tr>
+  <tr><td>Dados da compra (data, plano, valor, referência do pedido)</td><td>Registro da venda, reembolso e obrigações fiscais</td><td>Execução do contrato e obrigação legal</td></tr>
+</table>
+<p>Não usamos esses dados para publicidade, não os vendemos e não os compartilhamos com terceiros,
+exceto quando exigido por lei ou pela plataforma de pagamento para processar a própria compra.</p>
+
+<h2>5. Por quanto tempo guardamos</h2>
+<p>Os dados da compra são mantidos pelo prazo exigido pela legislação fiscal. Nome e e-mail são
+mantidos enquanto a sua licença estiver ativa e pelo período necessário para suporte e comprovação
+da relação de consumo.</p>
+
+<h2>6. Os seus direitos</h2>
+<p>Pela LGPD, você pode pedir a qualquer momento: confirmação de que tratamos dados seus, acesso a
+eles, correção, anonimização, portabilidade e exclusão — respeitados os prazos legais de guarda.
+Basta escrever para o e-mail de contato.</p>
+
+<h2>7. Este site</h2>
+<p>Esta página é hospedada no GitHub Pages e não usa cookies nossos nem ferramentas de análise. O
+GitHub, como hospedeiro, pode registrar dados de acesso (como endereço IP) conforme a política dele.</p>
+
+<h2>8. Segurança</h2>
+<p>A autorização de publicação do seu canal é gravada de forma cifrada, com proteção do próprio
+Windows. As suas chaves de IA ficam no seu computador. Ainda assim, a segurança da sua máquina é
+parte da proteção dos seus dados: mantenha o sistema atualizado e não compartilhe o computador com
+quem não deveria ter acesso aos seus canais.</p>
+
+<h2>9. Crianças</h2>
+<p>O ClipPilot não é destinado a menores de 18 anos e não coletamos dados de crianças e
+adolescentes conscientemente.</p>
+
+<h2>10. Mudanças nesta política</h2>
+<p>Se algo mudar no que o programa envia ou no que tratamos, esta página é atualizada, com a data no
+topo. Mudanças relevantes são comunicadas por e-mail a quem tiver licença ativa.</p>
+
+<footer><div><a href="index.html">← Voltar</a> &nbsp;·&nbsp; <a href="termos.html">Termos de uso</a></div></footer>
+</div>
+</body>
+</html>
