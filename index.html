@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ClipPilot — produza vídeos curtos no seu computador</title>
+<meta name="description" content="O ClipPilot escreve o roteiro, desenha as imagens, narra e monta o vídeo vertical no seu próprio computador. Você escolhe o assunto e aprova antes de publicar.">
+<style>
+  /* Paleta do próprio aplicativo: indigo = ação, fuchsia = marca. */
+  :root{
+    --fundo:#020617; --fundo2:#0b1120; --linha:#1e293b;
+    --texto:#e2e8f0; --suave:#94a3b8; --fraco:#64748b;
+    --acao:#6366f1; --acao-claro:#818cf8; --marca:#d946ef; --ok:#34d399; --aviso:#fbbf24;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--fundo);color:var(--texto);
+    font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+  .env{max-width:960px;margin:0 auto;padding:0 24px}
+  a{color:var(--acao-claro)}
+  h1,h2,h3{line-height:1.2;margin:0}
+  section{padding:72px 0;border-top:1px solid var(--linha)}
+  .rotulo{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--fraco);margin-bottom:14px}
+
+  /* topo */
+  header{padding:26px 0}
+  .marca{font-weight:800;font-size:20px;letter-spacing:-.02em}
+  .marca span{color:var(--marca)}
+  .capa{padding:64px 0 76px;text-align:center;
+    background:radial-gradient(90% 120% at 50% -10%, rgba(99,102,241,.16), transparent 60%)}
+  .capa h1{font-size:clamp(30px,5.5vw,52px);font-weight:800;letter-spacing:-.03em}
+  .capa p.linha{margin:22px auto 0;max-width:620px;font-size:clamp(17px,2.4vw,20px);color:var(--suave)}
+  .botoes{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+  .botao{display:inline-block;padding:15px 30px;border-radius:12px;font-weight:700;text-decoration:none;font-size:16px}
+  .primario{background:var(--acao);color:#fff}
+  .primario:hover{background:var(--acao-claro)}
+  .secundario{border:1px solid var(--linha);color:var(--texto)}
+  .secundario:hover{border-color:var(--fraco)}
+  .abaixo{margin-top:16px;font-size:13px;color:var(--fraco)}
+
+  .grade{display:grid;gap:20px}
+  @media(min-width:760px){.grade.g3{grid-template-columns:repeat(3,1fr)}.grade.g2{grid-template-columns:repeat(2,1fr)}}
+  .cartao{background:var(--fundo2);border:1px solid var(--linha);border-radius:14px;padding:24px}
+  .cartao h3{font-size:17px;margin-bottom:8px}
+  .cartao p{margin:0;color:var(--suave);font-size:15px}
+  .passo{display:flex;gap:16px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--linha)}
+  .passo:last-child{border-bottom:0}
+  .num{flex:0 0 32px;height:32px;border-radius:9px;background:rgba(99,102,241,.14);
+    color:var(--acao-claro);display:grid;place-items:center;font-weight:700;font-size:14px}
+
+  /* planos */
+  .plano{background:var(--fundo2);border:1px solid var(--linha);border-radius:16px;padding:28px;display:flex;flex-direction:column}
+  .plano.destaque{border-color:var(--acao)}
+  .plano h3{font-size:20px}
+  .preco{font-size:32px;font-weight:800;margin:14px 0 4px;letter-spacing:-.02em}
+  .preco small{font-size:14px;font-weight:500;color:var(--fraco)}
+  .lista{list-style:none;padding:0;margin:20px 0 26px;flex:1}
+  .lista li{padding:7px 0 7px 26px;position:relative;color:var(--suave);font-size:15px}
+  .lista li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:700}
+  .lista li.nao{color:var(--fraco)}
+  .lista li.nao::before{content:"—";color:var(--fraco)}
+
+  .faixa{background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.3);
+    border-radius:12px;padding:18px 20px;color:#fde68a;font-size:15px}
+  details{border-bottom:1px solid var(--linha);padding:16px 0}
+  summary{cursor:pointer;font-weight:600;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:"+";color:var(--acao-claro);font-weight:700;margin-right:10px}
+  details[open] summary::before{content:"–"}
+  details p{color:var(--suave);margin:12px 0 0;font-size:15px}
+  footer{padding:44px 0;color:var(--fraco);font-size:14px;border-top:1px solid var(--linha)}
+  footer a{color:var(--suave)}
+</style>
+</head>
+<body>
+
+<header><div class="env marca">Clip<span>Pilot</span></div></header>
+
+<div class="capa">
+  <div class="env">
+    <h1>Produza vídeos curtos<br>no seu próprio computador</h1>
+    <p class="linha">
+      O ClipPilot escreve o roteiro, desenha as imagens, narra e monta o vídeo vertical.
+      Você escolhe o assunto e aprova cada etapa — nada sobe para o seu canal sem a sua palavra.
+    </p>
+    <div class="botoes">
+      <a class="botao primario" href="https://github.com/Diekins/clippilot-releases/releases/latest">Baixar para Windows</a>
+      <a class="botao secundario" href="#planos">Ver os planos</a>
+    </div>
+    <p class="abaixo">Teste sem pagar nada: os três primeiros vídeos são liberados.</p>
+  </div>
+</div>
+
+<section>
+  <div class="env">
+    <div class="rotulo">Como funciona</div>
+    <div class="passo"><div class="num">1</div><div>
+      <h3>Você diz o assunto</h3>
+      <p>Escreva o tema do seu canal — o que você quiser. O ClipPilot sugere pautas dentro dele
+      e, quando o assunto pede, confere os fatos antes de escrever.</p></div></div>
+    <div class="passo"><div class="num">2</div><div>
+      <h3>Ele escreve e você lê antes</h3>
+      <p>O roteiro para na sua frente para ser lido e editado. Produzir um vídeo leva minutos de
+      processamento; descobrir no fim que o texto pegou o assunto errado joga esse tempo fora.</p></div></div>
+    <div class="passo"><div class="num">3</div><div>
+      <h3>Imagem, voz e montagem</h3>
+      <p>As imagens são desenhadas na sua placa de vídeo (de graça e sem limite) ou na nuvem, se
+      você preferir. A narração e a legenda saem prontas.</p></div></div>
+    <div class="passo"><div class="num">4</div><div>
+      <h3>Você aprova e publica</h3>
+      <p>Assista antes. Publique no seu canal do YouTube ou agende — inclusive vídeos produzidos
+      dias antes.</p></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="env">
+    <div class="rotulo">O que ele é — e o que não é</div>
+    <div class="grade g2">
+      <div class="cartao">
+        <h3>Roda no seu computador</h3>
+        <p>Seus roteiros, imagens e vídeos ficam na sua máquina. Não existe conta nossa, servidor
+        nosso nem mensalidade de nuvem no meio.</p>
+      </div>
+      <div class="cartao">
+        <h3>A inteligência é sua</h3>
+        <p>O ClipPilot usa as suas chaves de IA. As gratuitas resolvem, levam dois minutos para
+        criar e o próprio aplicativo te guia. Você não paga IA para nós.</p>
+      </div>
+      <div class="cartao">
+        <h3>Você continua no comando</h3>
+        <p>É um assistente de produção com curadoria, não uma esteira automática. Cada vídeo passa
+        por você antes de existir no seu canal.</p>
+      </div>
+      <div class="cartao">
+        <h3>Não promete audiência</h3>
+        <p>Nenhum programa garante visualização, inscrito ou renda. O ClipPilot tira do caminho o
+        trabalho repetitivo — o conteúdo continua sendo escolha sua.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="planos">
+  <div class="env">
+    <div class="rotulo">Planos</div>
+    <div class="grade g3">
+
+      <div class="plano">
+        <h3>Teste</h3>
+        <div class="preco">Grátis</div>
+        <p style="color:var(--fraco);font-size:14px;margin:0">Sem cadastro e sem cartão.</p>
+        <ul class="lista">
+          <li>3 vídeos completos</li>
+          <li>Roteiro, imagem, voz e montagem</li>
+          <li class="nao">Publicar no canal</li>
+          <li class="nao">Estúdio de Clips</li>
+        </ul>
+        <a class="botao secundario" href="https://github.com/Diekins/clippilot-releases/releases/latest">Baixar e testar</a>
+      </div>
+
+      <div class="plano">
+        <h3>Essencial</h3>
+        <!-- PREÇO: troque abaixo pelo valor que você definir. -->
+        <div class="preco">R$ ___ <small>/ ano</small></div>
+        <p style="color:var(--fraco);font-size:14px;margin:0">Para quem produz e publica na mão.</p>
+        <ul class="lista">
+          <li>Vídeos sem limite</li>
+          <li>Estúdio de Clips</li>
+          <li>Atualizações do ano</li>
+          <li class="nao">Publicar e agendar pelo app</li>
+        </ul>
+        <!-- LINK DE PAGAMENTO: troque o "#" pelo seu link (Pix, Hotmart, Kiwify…). -->
+        <a class="botao secundario" href="#">Assinar o Essencial</a>
+      </div>
+
+      <div class="plano destaque">
+        <h3>Turbo</h3>
+        <!-- PREÇO: troque abaixo pelo valor que você definir. -->
+        <div class="preco">R$ ___ <small>/ ano</small></div>
+        <p style="color:var(--fraco);font-size:14px;margin:0">Para quem mantém canal no ritmo.</p>
+        <ul class="lista">
+          <li>Tudo do Essencial</li>
+          <li>Publicar direto no seu canal</li>
+          <li>Agendamento de publicação</li>
+          <li>Vários canais no mesmo aplicativo</li>
+        </ul>
+        <!-- LINK DE PAGAMENTO: troque o "#" pelo seu link. -->
+        <a class="botao primario" href="#">Assinar o Turbo</a>
+      </div>
+
+    </div>
+    <p class="abaixo" style="text-align:center;margin-top:22px">
+      A chave chega no seu e-mail e é ativada em Configurações → Conta e licença.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="env">
+    <div class="rotulo">Antes de baixar</div>
+    <div class="faixa">
+      <strong>O Windows vai mostrar um aviso azul.</strong> O instalador ainda não tem certificado de
+      assinatura, então aparece “o Windows protegeu o seu computador”. Clique em
+      <strong>Mais informações → Executar assim mesmo</strong>. Estamos providenciando o certificado.
+    </div>
+    <div class="grade g2" style="margin-top:24px">
+      <div class="cartao">
+        <h3>O que você precisa</h3>
+        <p>Windows 10 ou 11, 8 GB de memória e uns 5 GB livres em disco. Placa de vídeo dedicada
+        não é obrigatória: sem ela, as imagens são feitas na nuvem.</p>
+      </div>
+      <div class="cartao">
+        <h3>Atualização automática</h3>
+        <p>Depois de instalado, o ClipPilot se atualiza sozinho e instala quando você fecha o
+        aplicativo. Você não precisa voltar aqui para baixar de novo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="env">
+    <div class="rotulo">Perguntas</div>
+    <details><summary>Preciso pagar alguma inteligência artificial?</summary>
+      <p>Não para nós. O ClipPilot usa as suas chaves, e as gratuitas dão conta do roteiro. As
+      imagens saem da sua placa de vídeo, sem custo e sem limite; se você não tiver placa, há
+      opções de nuvem gratuitas. Serviços pagos só entram se você escolher e configurar.</p></details>
+    <details><summary>Preciso de uma placa de vídeo boa?</summary>
+      <p>Ajuda bastante, mas não é obrigatória. Com placa dedicada as imagens saem no seu
+      computador, de graça e sem limite. Sem ela, o ClipPilot desenha na nuvem.</p></details>
+    <details><summary>Os meus vídeos ficam com vocês?</summary>
+      <p>Não. Tudo é produzido e guardado na sua máquina. Não temos servidor com o seu conteúdo,
+      nem conta para você criar.</p></details>
+    <details><summary>Posso usar em mais de um computador?</summary>
+      <p>A licença é para o seu uso. Dentro do aplicativo existe a opção de sair da máquina atual
+      para ativar em outra.</p></details>
+    <details><summary>E se eu perder minha chave?</summary>
+      <p>É só pedir pelo e-mail de suporte com o endereço usado na compra que reenviamos a mesma
+      chave.</p></details>
+    <details><summary>Tem para Mac ou Linux?</summary>
+      <p>Hoje só para Windows.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="env">
+    <!-- SUPORTE: troque pelo e-mail que você vai acompanhar. -->
+    Suporte: <a href="mailto:SEU-EMAIL-AQUI">SEU-EMAIL-AQUI</a> &nbsp;·&nbsp;
+    <a href="termos.html">Termos de uso</a> &nbsp;·&nbsp;
+    <a href="privacidade.html">Política de privacidade</a>
+    <p style="margin-top:14px">ClipPilot — software para Windows. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+</body>
+</html>
