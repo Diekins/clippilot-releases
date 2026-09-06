@@ -36,6 +36,10 @@
   .secundario{border:1px solid var(--linha);color:var(--texto)}
   .secundario:hover{border-color:var(--fraco)}
   .abaixo{margin-top:16px;font-size:13px;color:var(--fraco)}
+  .fluxo{display:block;width:100%;max-width:940px;height:auto;margin:44px auto 0}
+  .selo{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--acao-claro);background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.3);
+    border-radius:999px;padding:3px 10px;margin-bottom:10px}
 
   .grade{display:grid;gap:20px}
   @media(min-width:760px){.grade.g3{grid-template-columns:repeat(3,1fr)}.grade.g2{grid-template-columns:repeat(2,1fr)}}
@@ -87,6 +91,66 @@
       <a class="botao secundario" href="#planos">Ver os planos</a>
     </div>
     <p class="abaixo">Teste sem pagar nada: os três primeiros vídeos são liberados.</p>
+
+    <!-- Ilustração do caminho de um vídeo. É DESENHO, não captura de tela: os
+         nomes são os do aplicativo, mas nenhuma tela real está reproduzida aqui. -->
+    <svg class="fluxo" viewBox="0 0 940 190" role="img"
+         aria-label="Do assunto ao vídeo pronto: roteiro, imagens, narração e montagem vertical.">
+      <defs>
+        <linearGradient id="brilho" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#d946ef"/>
+        </linearGradient>
+      </defs>
+      <g fill="none" stroke="#1e293b" stroke-width="1.5">
+        <rect x="8"   y="46" width="150" height="98" rx="12" fill="#0b1120"/>
+        <rect x="196" y="46" width="150" height="98" rx="12" fill="#0b1120"/>
+        <rect x="384" y="46" width="150" height="98" rx="12" fill="#0b1120"/>
+        <rect x="572" y="46" width="150" height="98" rx="12" fill="#0b1120"/>
+        <rect x="772" y="16" width="92"  height="158" rx="14" fill="#0b1120" stroke="#6366f1"/>
+      </g>
+      <!-- 1. assunto -->
+      <g fill="#94a3b8" font-size="11" font-family="system-ui,sans-serif">
+        <text x="83"  y="36" text-anchor="middle" fill="#64748b">VOCÊ DIZ O ASSUNTO</text>
+        <text x="271" y="36" text-anchor="middle" fill="#64748b">ELE ESCREVE</text>
+        <text x="459" y="36" text-anchor="middle" fill="#64748b">DESENHA</text>
+        <text x="647" y="36" text-anchor="middle" fill="#64748b">NARRA</text>
+        <text x="818" y="186" text-anchor="middle" fill="#818cf8">VÍDEO PRONTO</text>
+      </g>
+      <rect x="30" y="78" width="106" height="10" rx="5" fill="#1e293b"/>
+      <rect x="30" y="96" width="72"  height="10" rx="5" fill="#1e293b"/>
+      <circle cx="126" cy="118" r="9" fill="url(#brilho)"/>
+      <!-- 2. roteiro -->
+      <g fill="#334155">
+        <rect x="218" y="70" width="106" height="7" rx="3.5"/>
+        <rect x="218" y="86" width="90"  height="7" rx="3.5"/>
+        <rect x="218" y="102" width="100" height="7" rx="3.5"/>
+        <rect x="218" y="118" width="64"  height="7" rx="3.5"/>
+      </g>
+      <!-- 3. imagens -->
+      <g fill="#1e293b" stroke="#334155">
+        <rect x="404" y="70"  width="52" height="48" rx="7"/>
+        <rect x="464" y="70"  width="52" height="48" rx="7"/>
+      </g>
+      <path d="M412 108 l14-16 12 13 8-8 10 11 z" fill="#475569"/>
+      <circle cx="446" cy="82" r="5" fill="#475569"/>
+      <path d="M472 108 l14-16 12 13 8-8 10 11 z" fill="#475569"/>
+      <!-- 4. voz -->
+      <g stroke="url(#brilho)" stroke-width="4" stroke-linecap="round">
+        <path d="M596 95 v0.1"/><path d="M608 82 v26"/><path d="M620 70 v50"/>
+        <path d="M632 78 v34"/><path d="M644 66 v58"/><path d="M656 80 v30"/>
+        <path d="M668 88 v14"/><path d="M680 74 v42"/><path d="M692 86 v18"/>
+      </g>
+      <!-- setas -->
+      <g stroke="#334155" stroke-width="1.5" fill="none">
+        <path d="M166 95 h22"/><path d="M354 95 h22"/><path d="M542 95 h22"/><path d="M730 95 h34"/>
+      </g>
+      <!-- 5. vídeo vertical -->
+      <rect x="782" y="26" width="72" height="128" rx="8" fill="#020617" stroke="#1e293b"/>
+      <circle cx="818" cy="86" r="16" fill="url(#brilho)"/>
+      <path d="M813 78 l12 8 -12 8 z" fill="#020617"/>
+      <rect x="792" y="128" width="52" height="6" rx="3" fill="#334155"/>
+      <rect x="800" y="140" width="36" height="6" rx="3" fill="#1e293b"/>
+    </svg>
   </div>
 </div>
 
@@ -140,6 +204,83 @@
   </div>
 </section>
 
+<section>
+  <div class="env">
+    <div class="rotulo">O que vem dentro</div>
+    <div class="grade g3">
+
+      <div class="cartao">
+        <span class="selo">Canal</span>
+        <h3>Quatro tipos de canal</h3>
+        <p>Casos reais, conferidos na Wikipédia antes de virar roteiro. Histórias originais de
+        suspense. Histórias de virada de vida. E receitas, passo a passo. Cada canal tem tema,
+        estilo e voz próprios.</p>
+      </div>
+
+      <div class="cartao">
+        <span class="selo">Roteiro</span>
+        <h3>Escreve, confere e refaz</h3>
+        <p>O roteiro sai em cenas, com gancho, desenvolvimento e desfecho. No modo de casos reais,
+        o próprio programa confere as datas e os nomes contra a fonte antes de seguir.</p>
+      </div>
+
+      <div class="cartao">
+        <span class="selo">Imagem</span>
+        <h3>Uma imagem por cena</h3>
+        <p>Sem placa dedicada, saem de serviços de nuvem gratuitos. Com uma placa NVIDIA e o
+        ComfyUI instalado — o próprio ClipPilot ensina o caminho —, saem no seu computador, de
+        graça e sem limite.</p>
+      </div>
+
+      <div class="cartao">
+        <span class="selo">Voz</span>
+        <h3>Narração em português</h3>
+        <p>A voz gratuita da Microsoft já vem pronta e não custa nada. Se você quiser voz premium,
+        é só ligar a sua conta da ElevenLabs.</p>
+      </div>
+
+      <div class="cartao">
+        <span class="selo">Montagem</span>
+        <h3>Legenda que acompanha a fala</h3>
+        <p>O vídeo sai em 9:16, com movimento suave nas imagens e a legenda queimada palavra por
+        palavra, no ritmo da narração — do jeito que segura quem está passando o dedo.</p>
+      </div>
+
+      <div class="cartao">
+        <span class="selo">Produção</span>
+        <h3>Uma fila que trabalha sozinha</h3>
+        <p>Você enfileira os vídeos, fecha o ClipPilot e volta depois. A produção acontece fora da
+        janela — fechar o aplicativo não mata o que estava no meio.</p>
+      </div>
+
+      <div class="cartao">
+        <span class="selo">Estúdio</span>
+        <h3>Corta vídeo longo em clipes</h3>
+        <p>Você aponta um vídeo, o Estúdio transcreve, corta os melhores trechos, escreve o título
+        de cada corte e monta a capa. Também faz miniatura e arte de canal.</p>
+      </div>
+
+      <div class="cartao">
+        <span class="selo">Publicação</span>
+        <h3>Publica e agenda no seu canal</h3>
+        <p>Sobe direto para o YouTube ou o TikTok, com título, descrição e marcações — e agenda a
+        hora. Vários canais no mesmo aplicativo, cada um com a sua conta.</p>
+      </div>
+
+      <div class="cartao">
+        <span class="selo">Painel</span>
+        <h3>O panorama dos seus canais</h3>
+        <p>Calendário do que está agendado, o que já está pronto esperando publicação, comparação
+        entre canais e as tendências do seu nicho.</p>
+      </div>
+
+    </div>
+    <p class="abaixo" style="text-align:center">
+      Ilustrações desta página são desenhos do funcionamento, não capturas de tela.
+    </p>
+  </div>
+</section>
+
 <section id="planos">
   <div class="env">
     <div class="rotulo">Planos</div>
@@ -160,8 +301,8 @@
 
       <div class="plano">
         <h3>Essencial</h3>
-        <!-- PREÇO: troque abaixo pelo valor que você definir. -->
-        <div class="preco">R$ ___ <small>/ ano</small></div>
+        <!-- PREÇO e LINK: preenchidos em src/core/comercial/dados-comerciais.ts -->
+        <div class="preco">R$ 49 <small>/ mês</small></div>
         <p style="color:var(--fraco);font-size:14px;margin:0">Para quem produz e publica na mão.</p>
         <ul class="lista">
           <li>Vídeos sem limite</li>
@@ -169,14 +310,13 @@
           <li>Atualizações do ano</li>
           <li class="nao">Publicar e agendar pelo app</li>
         </ul>
-        <!-- LINK DE PAGAMENTO: troque o "#" pelo seu link (Pix, Hotmart, Kiwify…). -->
-        <a class="botao secundario" href="#">Assinar o Essencial</a>
+        <a class="botao secundario" href="https://www.asaas.com/c/ox8nesvthdljiqrx">Assinar o Essencial</a>
       </div>
 
       <div class="plano destaque">
         <h3>Turbo</h3>
-        <!-- PREÇO: troque abaixo pelo valor que você definir. -->
-        <div class="preco">R$ ___ <small>/ ano</small></div>
+        <!-- PREÇO e LINK: preenchidos em src/core/comercial/dados-comerciais.ts -->
+        <div class="preco">R$ 99 <small>/ mês</small></div>
         <p style="color:var(--fraco);font-size:14px;margin:0">Para quem mantém canal no ritmo.</p>
         <ul class="lista">
           <li>Tudo do Essencial</li>
@@ -184,13 +324,14 @@
           <li>Agendamento de publicação</li>
           <li>Vários canais no mesmo aplicativo</li>
         </ul>
-        <!-- LINK DE PAGAMENTO: troque o "#" pelo seu link. -->
-        <a class="botao primario" href="#">Assinar o Turbo</a>
+        <a class="botao primario" href="https://www.asaas.com/c/cwor7zbd9y48od54">Assinar o Turbo</a>
       </div>
 
     </div>
     <p class="abaixo" style="text-align:center;margin-top:22px">
-      A chave chega no seu e-mail e é ativada em Configurações → Conta e licença.
+      A chave chega no seu e-mail e é ativada em Configurações → Conta e licença.<br>
+      <strong>7 dias para desistir e receber o valor de volta</strong>, como manda o Código de
+      Defesa do Consumidor.
     </p>
   </div>
 </section>
@@ -201,13 +342,15 @@
     <div class="faixa">
       <strong>O Windows vai mostrar um aviso azul.</strong> O instalador ainda não tem certificado de
       assinatura, então aparece “o Windows protegeu o seu computador”. Clique em
-      <strong>Mais informações → Executar assim mesmo</strong>. Estamos providenciando o certificado.
+      <strong>Mais informações → Executar assim mesmo</strong>. O aviso é sobre a assinatura do
+      instalador, não sobre o programa.
     </div>
     <div class="grade g2" style="margin-top:24px">
       <div class="cartao">
         <h3>O que você precisa</h3>
-        <p>Windows 10 ou 11, 8 GB de memória e uns 5 GB livres em disco. Placa de vídeo dedicada
-        não é obrigatória: sem ela, as imagens são feitas na nuvem.</p>
+        <p>Windows 10 ou 11, 8 GB de memória, uns 5 GB livres em disco e <strong>internet para
+        produzir</strong>. Placa de vídeo dedicada não é obrigatória: sem ela, as imagens são feitas
+        na nuvem.</p>
       </div>
       <div class="cartao">
         <h3>Atualização automática</h3>
@@ -223,14 +366,24 @@
     <div class="rotulo">Perguntas</div>
     <details><summary>Preciso pagar alguma inteligência artificial?</summary>
       <p>Não para nós. O ClipPilot usa as suas chaves, e as gratuitas dão conta do roteiro. As
-      imagens saem da sua placa de vídeo, sem custo e sem limite; se você não tiver placa, há
-      opções de nuvem gratuitas. Serviços pagos só entram se você escolher e configurar.</p></details>
+      imagens saem de serviços de nuvem gratuitos; se você tiver placa NVIDIA e instalar o ComfyUI
+      — um passo à parte, que o aplicativo ensina —, elas passam a sair no seu computador, sem
+      custo e sem limite. Serviços pagos só entram se você escolher e configurar.</p></details>
     <details><summary>Preciso de uma placa de vídeo boa?</summary>
-      <p>Ajuda bastante, mas não é obrigatória. Com placa dedicada as imagens saem no seu
-      computador, de graça e sem limite. Sem ela, o ClipPilot desenha na nuvem.</p></details>
+      <p>Ajuda bastante, mas não é obrigatória. Com uma placa NVIDIA e o ComfyUI instalado, as
+      imagens saem no seu computador, de graça e sem limite. Sem isso, o ClipPilot desenha na
+      nuvem, também de graça.</p></details>
     <details><summary>Os meus vídeos ficam com vocês?</summary>
       <p>Não. Tudo é produzido e guardado na sua máquina. Não temos servidor com o seu conteúdo,
       nem conta para você criar.</p></details>
+    <details><summary>Preciso de internet?</summary>
+      <p>Sim, para produzir. O roteiro e a narração são feitos por serviços online, e o Estúdio de
+      Clips baixa parte dos seus recursos na hora de usar. O que fica na sua máquina é o seu
+      conteúdo — os vídeos prontos, os roteiros e as suas configurações.</p></details>
+    <details><summary>E se eu desistir depois de comprar?</summary>
+      <p>Você tem <strong>7 dias corridos</strong> para desistir e receber o valor de volta,
+      contados do recebimento da chave — é o que diz o artigo 49 do Código de Defesa do Consumidor
+      para compras pela internet. Basta escrever para o suporte.</p></details>
     <details><summary>Posso usar em mais de um computador?</summary>
       <p>A licença é para o seu uso. Dentro do aplicativo existe a opção de sair da máquina atual
       para ativar em outra.</p></details>
@@ -244,8 +397,8 @@
 
 <footer>
   <div class="env">
-    <!-- SUPORTE: troque pelo e-mail que você vai acompanhar. -->
-    Suporte: <a href="mailto:SEU-EMAIL-AQUI">SEU-EMAIL-AQUI</a> &nbsp;·&nbsp;
+    <!-- SUPORTE: preenchido em src/core/comercial/dados-comerciais.ts -->
+    Suporte: <a href="mailto:contato@onkz.com.br">contato@onkz.com.br</a> &nbsp;·&nbsp;
     <a href="termos.html">Termos de uso</a> &nbsp;·&nbsp;
     <a href="privacidade.html">Política de privacidade</a>
     <p style="margin-top:14px">ClipPilot — software para Windows. Todos os direitos reservados.</p>
