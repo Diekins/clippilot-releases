@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://api.github.com; img-src 'self' data:; base-uri 'none'; form-action 'self'; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests">
 <title>Baixar ClipPilot — para Windows</title>
 <meta name="description" content="Baixe o instalador oficial do ClipPilot para Windows.">
 <style>
@@ -13,17 +14,6 @@
 <header class="top"><div class="wrap"><a class="brand" href="index.html"><span class="mark">▶</span>ClipPilot</a></div></header>
 <main class="hero"><div class="wrap grid"><section><div class="eyebrow">Instalador oficial para Windows</div><h1>Seu estúdio começa <em>aqui.</em></h1><p class="lead">Baixe o ClipPilot e transforme uma ideia em vídeo pronto, com roteiro, imagens, narração, montagem e publicação no mesmo lugar.</p><div class="actions"><a id="download" class="btn primary" href="https://github.com/Diekins/clippilot-releases/releases/latest">Baixar o instalador</a><a class="btn secondary" href="index.html">Voltar ao site</a></div><p class="note" id="release">Preparando o download seguro da versão atual...</p></section><aside class="card"><div class="eyebrow" style="color:var(--cyan)">Primeiro acesso</div><h2>Instalar é só o começo.</h2><p>Depois de abrir o ClipPilot, o assistente ajuda você a preparar o computador e conectar seus canais.</p><div class="steps"><div class="step"><b class="num">1</b><div><strong>Baixe e instale</strong><span>O Windows pode mostrar um aviso do SmartScreen na primeira instalação.</span></div></div><div class="step"><b class="num">2</b><div><strong>Abra o assistente</strong><span>Ele confere o motor de vídeo, voz, espaço e conexões.</span></div></div><div class="step"><b class="num">3</b><div><strong>Produza seus primeiros vídeos</strong><span>O teste começa sem cadastro e sem cartão.</span></div></div></div><div class="trust">Arquivo oficial ClipPilot · conteúdo processado no seu computador</div></aside></div></main>
 <footer class="bottom"><div class="wrap">Precisa de ajuda? <a href="mailto:contato@onkz.com.br">contato@onkz.com.br</a></div></footer>
-<script>
-(async function(){
-  const link=document.getElementById("download"), note=document.getElementById("release");
-  try{
-    const response=await fetch("https://api.github.com/repos/Diekins/clippilot-releases/releases/latest?site="+Date.now(),{cache:"no-store",headers:{Accept:"application/vnd.github+json"}});
-    if(!response.ok) throw new Error("release");
-    const release=await response.json();
-    const asset=(release.assets||[]).find(function(item){return /ClipPilot-Setup-.*\.exe$/i.test(item.name);});
-    if(asset){link.href=asset.browser_download_url;note.textContent=release.tag_name+" · "+(asset.size/1048576).toFixed(0)+" MB · instalador para Windows";}
-  }catch(_){note.textContent="Versão atual · instalador para Windows";}
-})();
-</script>
+<script src="baixar.js" defer></script>
 </body>
 </html>
