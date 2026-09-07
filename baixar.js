@@ -14,7 +14,7 @@
       note.textContent = release.tag_name + " · " + (asset.size / 1048576).toFixed(0) + " MB · instalador para Windows";
     }
   } catch (_) {
-    link.href = "https://github.com/Diekins/clippilot-releases/releases/download/v0.2.11/ClipPilot-Setup-0.2.11.exe";
+    link.href = "https://github.com/Diekins/clippilot-releases/releases/download/v0.2.12/ClipPilot-Setup-0.2.12.exe";
     note.textContent = "Versão atual · instalador para Windows";
   }
 })();
