@@ -1,0 +1,8 @@
+version: 0.2.34
+files:
+  - url: https://clippilot.onkz.com.br/downloads/ClipPilot-Setup-0.2.34.exe
+    sha512: NHjwmdSaPULlbdoYjBCbhurCDYBqg2976eEFd/IzQ/ESG5l3I3HJckdXUkD2F/+fF04CuKX2d1YdEi7J5OZJwQ==
+    size: 395888653
+path: ClipPilot-Setup-0.2.34.exe
+sha512: NHjwmdSaPULlbdoYjBCbhurCDYBqg2976eEFd/IzQ/ESG5l3I3HJckdXUkD2F/+fF04CuKX2d1YdEi7J5OZJwQ==
+releaseDate: '2026-09-08T23:21:34.080Z'
