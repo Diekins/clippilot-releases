@@ -1,8 +1,8 @@
-version: 0.2.34
+version: 0.2.56
 files:
-  - url: https://clippilot.onkz.com.br/downloads/ClipPilot-Setup-0.2.34.exe
-    sha512: NHjwmdSaPULlbdoYjBCbhurCDYBqg2976eEFd/IzQ/ESG5l3I3HJckdXUkD2F/+fF04CuKX2d1YdEi7J5OZJwQ==
-    size: 395888653
-path: ClipPilot-Setup-0.2.34.exe
-sha512: NHjwmdSaPULlbdoYjBCbhurCDYBqg2976eEFd/IzQ/ESG5l3I3HJckdXUkD2F/+fF04CuKX2d1YdEi7J5OZJwQ==
-releaseDate: '2026-09-08T23:21:34.080Z'
+  - url: https://pub-1cda418a556d41ba843ae3a461e0f410.r2.dev/Vicutra-Setup-0.2.56.exe
+    sha512: GrgwXEVAQJu5titq4XAs/+c3dZ9nfz3gP9jomILhQpy1Nw/5qZz2bJpNt/1zNDqLrbmlV8fqHsmkchYv+iLuGA==
+    size: 397305468
+path: Vicutra-Setup-0.2.56.exe
+sha512: GrgwXEVAQJu5titq4XAs/+c3dZ9nfz3gP9jomILhQpy1Nw/5qZz2bJpNt/1zNDqLrbmlV8fqHsmkchYv+iLuGA==
+releaseDate: '2026-09-10T04:09:59.748Z'
