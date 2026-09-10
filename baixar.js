@@ -1,20 +1,33 @@
 (async function(){
-  const link = document.getElementById("download");
+  const links = Array.from(document.querySelectorAll("[data-download]"));
   const note = document.getElementById("release");
-  try {
-    const response = await fetch("https://api.github.com/repos/Diekins/clippilot-releases/releases/latest?site=" + Date.now(), {
-      cache: "no-store",
-      headers: { Accept: "application/vnd.github+json" },
+  const manifesto = new URL("latest.yml", document.baseURI);
+  const deixarIndisponivel = (mensagem) => {
+    links.forEach((link) => {
+      link.removeAttribute("href");
+      link.setAttribute("aria-disabled", "true");
+      link.classList.add("disabled");
     });
-    if (!response.ok) throw new Error("release");
-    const release = await response.json();
-    const asset = (release.assets || []).find((item) => /ClipPilot-Setup-.*\.exe$/i.test(item.name));
-    if (asset) {
-      link.href = asset.browser_download_url;
-      note.textContent = release.tag_name + " · " + (asset.size / 1048576).toFixed(0) + " MB · instalador para Windows";
-    }
+    if (note) note.textContent = mensagem;
+  };
+  try {
+    const response = await fetch(manifesto.href + "?versao=" + Date.now(), {
+      cache: "no-store",
+    });
+    if (!response.ok) throw new Error("manifesto indisponível");
+    const texto = await response.text();
+    const versao = /^version:\s*(.+)$/m.exec(texto)?.[1]?.trim();
+    const arquivo = /^path:\s*(.+)$/m.exec(texto)?.[1]?.trim();
+    if (!versao || !arquivo || !/^Vicutra-Setup-[\w.-]+\.exe$/i.test(arquivo)) throw new Error("instalador não publicado");
+    const download = new URL(arquivo, manifesto);
+    if (download.origin !== window.location.origin) throw new Error("download fora do site oficial");
+    links.forEach((link) => {
+      link.href = download.href;
+      link.removeAttribute("aria-disabled");
+      link.classList.remove("disabled");
+    });
+    if (note) note.textContent = versao + " · instalador oficial para Windows";
   } catch (_) {
-    link.href = "https://github.com/Diekins/clippilot-releases/releases/download/v0.2.18/ClipPilot-Setup-0.2.18.exe";
-    note.textContent = "Versão atual · instalador para Windows";
+    deixarIndisponivel("O instalador oficial está sendo preparado. Tente novamente em instantes.");
   }
 })();
